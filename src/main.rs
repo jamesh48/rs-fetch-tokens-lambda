@@ -67,14 +67,17 @@ async fn get_tokens(
 
     let result_json = convert_attribute_values(result.item.unwrap_or_default());
 
-    let body = to_string(&result_json).expect("Failed to stringify JSON");
+    // Uncomment for Lambda/ALB Integration
+    // let body = to_string(&result_json).expect("Failed to stringify JSON");
 
     return Ok(json!({
-      "isBase64Encoded": false,
-      "statusCode": 200,
-      "statusDescription": "200 OK",
-      "headers": { "Content-Type": "application/json" },
-      "body": body,
+        "data": result_json
+    // uncomment for Lambda/ALB Integration
+    // "body": body,
+    //   "isBase64Encoded": false,
+    //   "statusCode": 200,
+    //   "statusDescription": "200 OK",
+    //   "headers": { "Content-Type": "application/json" },
     }));
 }
 
