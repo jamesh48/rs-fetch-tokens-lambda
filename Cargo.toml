@@ -1,0 +1,16 @@
+[package]
+name = "rs-fetch-tokens-lambda"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+aws-config = "0.12.0"
+aws-sdk-dynamodb = "0.12.0"
+urlencoding = "2.1.2"
+tokio = { version = "1", features = ["full"] }
+lambda_runtime = "^0.5.1"
+serde = "^1.0.137"
+serde_json = "^1.0.81"
+serde_derive = "^1.0.137"
+simple_logger = "^1"
+simple-error = "0.2.3"
